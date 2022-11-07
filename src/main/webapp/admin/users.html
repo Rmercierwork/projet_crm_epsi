@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Keunotor Game App</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/js/users.js" defer></script>
+</head>
+<body>
+<div class="pure-menu pure-menu-horizontal">
+    <a href="/index.html" class="pure-menu-heading pure-menu-link">Keunotor Game Shop</a>
+    <ul class="pure-menu-list">
+        <li class="pure-menu-item">
+            <a href="/logout" class="pure-menu-link">Logout</a>
+        </li>
+        <li class="pure-menu-item">
+            <a href="/admin/register.html" class="pure-menu-link">Create new user</a>
+        </li>
+        <li class="pure-menu-item">
+            <a href="/admin/users.html" class="pure-menu-link">Access to all users</a>
+        </li>
+    </ul>
+</div>
+    <div id="app">
+        <div class="user-list">
+            Users :<br>
+            <div class="user-item">
+                <template v-for="(user, userIndex) in users">
+                    <table border="2">
+                        <tr>
+                            <td>{{user.login}}</td>
+                            <td>{{user.role}}</td>
+<!--                            <td>-->
+<!--                                <select name="role" class="form-control">-->
+<!--                                    <option value="ROLE_SALESREP">SalesRep</option>-->
+<!--                                    <option value="ROLE_STAFF">Staff</option>-->
+<!--                                </select>-->
+<!--                                <button v-on:click="modifyUser(user)">Modify</button>-->
+<!--                            </td>-->
+                            <td>
+                                <button v-on:click="removeUser(user)">Delete</button>
+                            </td>
+                        </tr>
+                    </table>
+                </template>
+            </div>
+        </div>
+        <a href="/admin/menu.html">Back to menu</a>
+    </div>
+</body>
+</html>

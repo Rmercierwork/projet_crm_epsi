@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Keunotor Game App</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/js/staff/createproductsheet.js" defer></script>
+</head>
+<body>
+
+<div class="pure-menu pure-menu-horizontal">
+    <a href="/index.html" class="pure-menu-heading pure-menu-link">Keunotor Game Shop</a>
+    <ul class="pure-menu-list">
+        <li class="pure-menu-item">
+            <a href="/logout" class="pure-menu-link">Logout</a>
+        </li>
+        <li class="pure-menu-item">
+            <a href="/staff/createclient_sheet.html" class="pure-menu-link">Create new client sheet</a>
+        </li>
+        <li class="pure-menu-item">
+            <a href="/staff/client_sheets.html" class="pure-menu-link">Client Sheets</a>
+        </li>
+        <li class="pure-menu-item">
+            <a href="/staff/createproductsheet.html" class="pure-menu-link">Create new product sheet</a>
+        </li>
+        <li class="pure-menu-item">
+            <a href="/staff/productsheets.html" class="pure-menu-link">Products</a>
+        </li>
+        <li class="pure-menu-item">
+            <a href="/staff/createorder.html" class="pure-menu-link">Create new order</a>
+        </li>
+        <li class="pure-menu-item">
+            <a href="/staff/orders.html" class="pure-menu-link">Orders</a>
+        </li>
+    </ul>
+</div>
+<div id="app">
+    <form @submit.prevent="createProductSheet()" class="pure-form pure-form-stacked">
+        <fieldset>
+            <legend>Product details</legend>
+            <label for="stacked-label">Label</label>
+            <input type="text" id="stacked-label" placeholder="Label" v-model="newProductSheet.name"/>
+            <label for="stacked-releaseDate">Release date</label>
+            <input type="text" id="stacked-releaseDate" placeholder="Release date" v-model="newProductSheet.releaseDate"/>
+            <fieldset class="pure-group">
+                <label for="stacked-Resume">Resume</label>
+                <textarea class="pure-input-1-2" id="stacked-Resume" placeholder="Resume" v-model="newProductSheet.description"></textarea>
+            </fieldset>
+            <label for="stacked-Pegi">Pegi</label>
+            <input type="number" id="stacked-Pegi" placeholder="Pegi" v-model="newProductSheet.pegi" />
+            <label for="stacked-Grade">Grade</label>
+            <input type="number" id="stacked-Grade" placeholder="Grade" v-model="newProductSheet.grade" />
+            <label for="stacked-Type">Type</label>
+            <input type="text" id="stacked-Type" placeholder="Type" v-model="newProductSheet.type" />
+            <label for="stacked-platform">Platform</label>
+            <input type="text" id="stacked-platform" placeholder="Platform" v-model="newProductSheet.platform"><br>
+            <button class="pure-button pure-button-primary">Create product sheet</button>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Keunotor Game App</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/js/salesRep/client_sheets-saler.js" defer></script>
+</head>
+<body>
+    <div class="pure-menu pure-menu-horizontal">
+        <a href="/index.html" class="pure-menu-heading pure-menu-link">Keunotor Game Shop</a>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item">
+                <a href="/logout" class="pure-menu-link">Logout</a>
+            </li>
+            <li class="pure-menu-item">
+                <a href="/salesRep/createclient_sheet.html" class="pure-menu-link">Create new client sheet</a>
+            </li>
+            <li class="pure-menu-item">
+                <a href="/salesRep/client_sheets.html" class="pure-menu-link">Client Sheets</a>
+            </li>
+            <li class="pure-menu-item">
+                <a href="/salesRep/productsheets.html" class="pure-menu-link">Products</a>
+            </li>
+            <li class="pure-menu-item">
+                <a href="/salesRep/createorder.html" class="pure-menu-link">Create new order</a>
+            </li>
+            <li class="pure-menu-item">
+                <a href="/salesRep/orders.html" class="pure-menu-link">Orders</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="app">
+        <div class="client_sheet-list">
+            <div class="client_sheet-item">
+                <table class="pure-table pure-table-horizontal">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>mail</th>
+                        <th>Phone Number</th>
+                        <th>City</th>
+                        <th>Street Number</th>
+                        <th>Street</th>
+                        <th>ZIP Code</th>
+                        <th>Modify</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <template v-for="clientSheet in clientSheets">
+                        <tbody>
+                        <tr>
+                            <td>{{clientSheet.id}}</td>
+                            <td>{{clientSheet.firstname}}</td>
+                            <td>{{clientSheet.lastname}}</td>
+                            <td>{{clientSheet.email}}</td>
+                            <td>{{clientSheet.phonenumber}}</td>
+                            <td>{{clientSheet.city}}</td>
+                            <td>{{clientSheet.streetnumber}}</td>
+                            <td>{{clientSheet.street}}</td>
+                            <td>{{clientSheet.zipcode}}</td>
+                            <td>
+                                <a v-bind:href="'/salesRep/client_sheet.html?clientSheetId='+clientSheet.id">
+                                    <button>Modify</button>
+                                </a>
+                            </td>
+                            <td>
+                                <button v-on:click="removeClientSheet(clientSheet)">Delete</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </template>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

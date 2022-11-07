@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:v-on="http://www.w3.org/1999/xhtml"
+>
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script defer src="/js/staff/productsheets-staff.js"></script>
+    <meta charset="UTF-8">
+    <title>Add a new product sheet</title>
+</head>
+<body>
+<div class="pure-menu pure-menu-horizontal">
+    <a href="/index.html" class="pure-menu-heading pure-menu-link">Keunotor Game Shop</a>
+    <ul class="pure-menu-list">
+        <li class="pure-menu-item">
+            <a href="/logout" class="pure-menu-link">Logout</a>
+        </li>
+        <li class="pure-menu-item">
+            <a href="/staff/createclient_sheet.html" class="pure-menu-link">Create new client sheet</a>
+        </li>
+        <li class="pure-menu-item">
+            <a href="/staff/client_sheets.html" class="pure-menu-link">Client Sheets</a>
+        </li>
+        <li class="pure-menu-item">
+            <a href="/staff/createproductsheet.html" class="pure-menu-link">Create new product sheet</a>
+        </li>
+        <li class="pure-menu-item">
+            <a href="/staff/productsheets.html" class="pure-menu-link">Products</a>
+        </li>
+        <li class="pure-menu-item">
+            <a href="/staff/createorder.html" class="pure-menu-link">Create new order</a>
+        </li>
+        <li class="pure-menu-item">
+            <a href="/staff/orders.html" class="pure-menu-link">Orders</a>
+        </li>
+    </ul>
+</div>
+
+<div id="app">
+    <div class="productsheet-list">
+        <div class="productsheet-item">
+            <table class="pure-table pure-table-horizontal">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Label</th>
+                    <th>View product</th>
+                    <th>Remove product</th>
+                </tr>
+                </thead>
+                <template v-for="productSheet in productSheets">
+                    <tbody>
+                    <tr>
+                        <td>{{productSheet.id}}</td>
+                        <td>{{productSheet.name}}</td>
+                        <td>
+                            <a v-bind:href="'/staff/productsheet.html?productSheetId='+productSheet.id">
+                                <button>Product Details</button>
+                            </a>
+                        </td>
+                        <td>
+                            <button v-on:click="removeProductSheet(productSheet)">Remove</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </template>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

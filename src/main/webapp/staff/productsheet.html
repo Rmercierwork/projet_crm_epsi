@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:v-on="http://www.w3.org/1999/xhtml"
+>
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script defer src="/js/staff/productsheet-staff.js"></script>
+    <meta charset="UTF-8">
+    <title>Product sheet details</title>
+</head>
+<body>
+<div class="pure-menu pure-menu-horizontal">
+    <a href="/index.html" class="pure-menu-heading pure-menu-link">Keunotor Game Shop</a>
+    <ul class="pure-menu-list">
+        <li class="pure-menu-item">
+            <a href="/logout" class="pure-menu-link">Logout</a>
+        </li>
+        <li class="pure-menu-item">
+            <a href="/staff/createclient_sheet.html" class="pure-menu-link">Create new client sheet</a>
+        </li>
+        <li class="pure-menu-item">
+            <a href="/staff/client_sheets.html" class="pure-menu-link">Client Sheets</a>
+        </li>
+        <li class="pure-menu-item">
+            <a href="/staff/createproductsheet.html" class="pure-menu-link">Create new product sheet</a>
+        </li>
+        <li class="pure-menu-item">
+            <a href="/staff/productsheets.html" class="pure-menu-link">Products</a>
+        </li>
+        <li class="pure-menu-item">
+            <a href="/staff/createorder.html" class="pure-menu-link">Create new order</a>
+        </li>
+        <li class="pure-menu-item">
+            <a href="/staff/orders.html" class="pure-menu-link">Orders</a>
+        </li>
+    </ul>
+</div>
+<div id="app">
+    <h1>Game details</h1>
+    <table class="pure-table">
+        <thead>
+        <tr class="pure-table-odd">
+            <th>Label</th>
+            <td>{{productSheet.name}}</td>
+        </tr>
+        <tr>
+            <th>Release date</th>
+            <td>{{productSheet.releaseDate}}</td>
+        </tr>
+        <tr class="pure-table-odd">
+            <th>Synopsis</th>
+            <td>{{productSheet.description}}</td>
+        </tr>
+        <tr>
+            <th>Pegi</th>
+            <td>{{productSheet.pegi}}</td>
+        </tr>
+        <tr class="pure-table-odd">
+            <th>Grade</th>
+            <td>{{productSheet.grade}}</td>
+        </tr>
+        <tr>
+            <th>Type</th>
+            <td>{{productSheet.type}}</td>
+        </tr>
+        <tr class="pure-table-odd">
+            <th>Platform</th>
+            <td>{{productSheet.platform}}</td>
+        </tr>
+
+    </table>
+
+</div>
+
+</body>
+</html>
